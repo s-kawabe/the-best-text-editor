@@ -1,2 +1,6 @@
-# my best text editor mede by lexical(https://lexical.dev/)
+# lexical(https://lexical.dev/) playground
 https://github.com/facebook/lexical
+
+```
+yarn add lexical @lexical/react
+```
