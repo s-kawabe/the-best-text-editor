@@ -6,6 +6,6 @@ import { Top } from './Top'
 describe('Top page test', () => {
   test('rendering test', () => {
     render(<Top />)
-    expect(screen.getByText('test text')).toBeTruthy()
+    expect(screen.getByText('lexcal prayground')).toBeTruthy()
   })
 })

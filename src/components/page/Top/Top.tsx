@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import { RichTextEditor } from '@/components/ui/editor/RichTextEditor'
+
 import styles from './Top.module.scss'
 
 export const Top = () => {
@@ -13,6 +15,7 @@ export const Top = () => {
 
       <main className={styles.container}>
         <h1 className={styles.header}>Lexical Prayground</h1>
+        <RichTextEditor />
       </main>
     </>
   )
