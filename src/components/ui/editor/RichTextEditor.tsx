@@ -1,13 +1,15 @@
+import AutoFocusPlugin from '@lexical/react/LexicalAutoFocusPlugin'
 import LexicalComposer from '@lexical/react/LexicalComposer'
 import LexicalContentEditable from '@lexical/react/LexicalContentEditable'
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
 import LexicalOnChangePlugin from '@lexical/react/LexicalOnChangePlugin'
-import LexicalPlainTextPlugin from '@lexical/react/LexicalPlainTextPlugin'
+import LexicalRichTextPlugin from '@lexical/react/LexicalRichTextPlugin'
 import type { FC } from 'react'
 
-import { MyCustomAutoFocusPlugin, onChange, onError, theme } from './internal'
+import { onChange, onError, Placeholder, theme } from './internal'
+import styles from './RichTextEditor.module.scss'
 
-// type RichTextEditorViewProps = {} & RichTextEditorProps
+// type RichTextEditorViewProps = {} & RichTextEditorProp
 
 const RichTextEditorView: FC = () => {
   const config = {
@@ -16,13 +18,15 @@ const RichTextEditorView: FC = () => {
   }
   return (
     <LexicalComposer initialConfig={config}>
-      <LexicalPlainTextPlugin
-        contentEditable={<LexicalContentEditable />}
-        placeholder={<div>Enter some text...</div>}
-      />
-      <LexicalOnChangePlugin onChange={onChange} />
-      <HistoryPlugin />
-      <MyCustomAutoFocusPlugin />
+      <div className={styles.editorContainer}>
+        {/* for rich text editor plugin. default equipped key bind to bold and italic */}
+        <LexicalRichTextPlugin contentEditable={<LexicalContentEditable />} placeholder={<Placeholder />} />
+        {/* plugin that calls onChange whenever Lexical state is updated. */}
+        <LexicalOnChangePlugin onChange={onChange} />
+        {/* support for history stack management and undo / redo commands */}
+        <HistoryPlugin />
+        <AutoFocusPlugin />
+      </div>
     </LexicalComposer>
   )
 }

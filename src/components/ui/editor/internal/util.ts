@@ -4,8 +4,8 @@ import { $getRoot, $getSelection } from 'lexical'
 export const theme = {
   ltr: 'ltr',
   rtl: 'rtl',
-  placeholder: 'editor-placeholder',
-  paragraph: 'editor-paragraph',
+  placeholder: 'editorPlaceholder',
+  paragraph: 'editorParagraph',
 }
 
 export const onError = (error: Error, editor: LexicalEditor): void => {
