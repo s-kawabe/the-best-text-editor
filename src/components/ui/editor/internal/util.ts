@@ -14,6 +14,7 @@ export const onError = (error: Error, editor: LexicalEditor): void => {
   console.error('editor: ', editor)
 }
 
+// EditorStateの状態が変化した時になにか処理をしたいときに使う
 export const onChange = (editorState: EditorState): void => {
   editorState.read(() => {
     const root = $getRoot()
